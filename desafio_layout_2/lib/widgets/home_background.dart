@@ -24,6 +24,24 @@ class HomeBackgroundColor extends AnimatedWidget {
               ),
             ),
           ),
+          Positioned(
+            top: -50,
+            right: -10,
+            child: Container(
+              width: 150,
+              height: 150,
+              decoration: const ShapeDecoration(shape: CircleBorder(), color: lime),
+            ),
+          ),
+          Positioned(
+            top: -80 * (progress.value) - 50 * (1 - progress.value),
+            left: -60,
+            child: Container(
+              width: 150 * (1 - progress.value) + 150,
+              height: 150 * (1 - progress.value) + 150,
+              decoration: const ShapeDecoration(shape: CircleBorder(), color: orange),
+            ),
+          ),
         ],
       ),
     );
