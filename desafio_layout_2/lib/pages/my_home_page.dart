@@ -11,12 +11,23 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage>{
    int _currentIndex = 0;
 
+   late ScrollController scrollController;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-          
+          //  SingleChildScrollView(
+          //   controller: scrollController,
+          //   padding: const EdgeInsets.only(top: 100),
+          //   child: Column(
+          //     crossAxisAlignment: CrossAxisAlignment.start,
+          //     children: [
+               
+          //     ],
+          //   ),
+          // ),
         ],
       ),
       bottomNavigationBar: HomePageButtonNavigationBar(
