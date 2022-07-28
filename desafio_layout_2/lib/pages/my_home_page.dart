@@ -1,6 +1,7 @@
 import 'package:desafio_layout_2/utils/app_utils.dart';
 import 'package:desafio_layout_2/widgets/home_background.dart';
 import 'package:desafio_layout_2/widgets/home_page_navigationbar.dart';
+import 'package:desafio_layout_2/widgets/search_app.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -40,7 +41,6 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
     super.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,8 +52,8 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
             padding: const EdgeInsets.only(top: 100),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-               
+              children: const [
+                SearchApp(),
               ],
             ),
           ),
