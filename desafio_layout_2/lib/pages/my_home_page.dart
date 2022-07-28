@@ -1,7 +1,12 @@
+import 'package:desafio_layout_2/constants/text_style.dart';
+import 'package:desafio_layout_2/models/evento_model.dart';
+import 'package:desafio_layout_2/pages/detalhes_eventos.dart';
 import 'package:desafio_layout_2/utils/app_utils.dart';
+import 'package:desafio_layout_2/widgets/card_proximos_eventos.dart';
 import 'package:desafio_layout_2/widgets/home_background.dart';
 import 'package:desafio_layout_2/widgets/home_page_navigationbar.dart';
 import 'package:desafio_layout_2/widgets/search_app.dart';
+import 'package:desafio_layout_2/widgets/sizebox_help.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -18,6 +23,22 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
    late Animation<double> opacity;
    late AnimationController controller;
    late AnimationController opacityController;
+
+   void viewEventDetail(Evento event) {
+    Navigator.of(context).push(
+      PageRouteBuilder(
+        opaque: false,
+        barrierDismissible: true,
+        transitionDuration: const Duration(milliseconds: 300),
+        pageBuilder: (BuildContext context, animation, __) {
+          return FadeTransition(
+            opacity: animation,
+            child: PaginaDetalhesEventos(event),
+          );
+        },
+      ),
+    );
+  }
 
    void initState() {
     scrollController = ScrollController();
@@ -52,8 +73,11 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
             padding: const EdgeInsets.only(top: 100),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                SearchApp(),
+              children: [
+                const SearchApp(),
+                SizeHelper.verticalSpace(16),
+                ProximosEventos(),
+
               ],
             ),
           ),
@@ -71,5 +95,30 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       ),
     );
     
+  }
+
+  Widget ProximosEventos (){
+    return Container(
+      padding: const EdgeInsets.only(left: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text("Próximos Eventos", style: headerStyle.copyWith(color: Colors.white)),
+          SizeHelper.verticalSpace(16),
+          SizedBox(
+            height: 250,
+            child: ListView.builder(
+              itemCount: proximosEventos.length,
+              physics: const BouncingScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                final event = proximosEventos[index];
+                return CardPRoximosEventos(event: event, onTap: () => viewEventDetail(event));
+              },
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
