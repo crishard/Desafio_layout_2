@@ -48,7 +48,7 @@ final List<Evento> proximosEventos = [
   ),
 ];
 
-final List<Evento> eventosProximos = [
+final List<Evento> eventosProximidade = [
   Evento(
     name: "The Pretty Reckless",
     eventDate: DateTime.now().add(const Duration(days: 1)),

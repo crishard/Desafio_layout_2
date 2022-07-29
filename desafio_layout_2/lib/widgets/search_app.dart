@@ -5,18 +5,19 @@ class SearchApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
+    return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16),
-      child: TextField(
-        style: TextStyle(color: Colors.white),
-        decoration: InputDecoration(
-          hintText: "Search...",
-          hintStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 24),
-          border: UnderlineInputBorder(borderSide: BorderSide(color: Colors.white)),
-          enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.white)),
-          focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.white)),
-        ),
-      ),
+      child: Row(
+        children: [
+          Container(
+            width: 2.2,
+            height: 40,
+            color: Colors.white,
+            margin: const EdgeInsets.only(right: 10),
+          ),
+          const Text("Search...", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 33),)
+        ],
+      )
     );
   }
 }

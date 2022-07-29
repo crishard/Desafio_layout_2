@@ -5,6 +5,7 @@ import 'package:desafio_layout_2/utils/app_utils.dart';
 import 'package:desafio_layout_2/widgets/card_proximos_eventos.dart';
 import 'package:desafio_layout_2/widgets/home_background.dart';
 import 'package:desafio_layout_2/widgets/home_page_navigationbar.dart';
+import 'package:desafio_layout_2/widgets/proximidade_eventos.dart';
 import 'package:desafio_layout_2/widgets/search_app.dart';
 import 'package:desafio_layout_2/widgets/sizebox_help.dart';
 import 'package:flutter/material.dart';
@@ -76,8 +77,9 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
               children: [
                 const SearchApp(),
                 SizeHelper.verticalSpace(16),
-                ProximosEventos(),
-
+                proximosEvents(),
+                SizeHelper.verticalSpace(16),
+                eventosNaProximidade(),
               ],
             ),
           ),
@@ -97,13 +99,13 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
     
   }
 
-  Widget ProximosEventos (){
+  Widget proximosEvents (){
     return Container(
       padding: const EdgeInsets.only(left: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text("Próximos Eventos", style: headerStyle.copyWith(color: Colors.white)),
+          Text("Upcoming Events", style: headerStyle.copyWith(color: Colors.white)),
           SizeHelper.verticalSpace(16),
           SizedBox(
             height: 250,
@@ -116,6 +118,54 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                 return CardPRoximosEventos(event: event, onTap: () => viewEventDetail(event));
               },
             ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget eventosNaProximidade() {
+    return Container(
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+        color: Colors.white,
+      ),
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              const Text("Nearby Concerts", style: headerStyle),
+              const Spacer(),
+              const Icon(Icons.more_horiz),
+              SizeHelper.horizontalSpace(16),
+            ],
+          ),
+          ListView.builder(
+            itemCount: eventosProximidade.length,
+            shrinkWrap: true,
+            primary: false,
+            itemBuilder: (context, index) {
+              final event = eventosProximidade[index];
+              var animation = Tween<double>(begin: 800.0, end: 0.0).animate(
+                CurvedAnimation(
+                  parent: controller,
+                  curve: Interval((1 / eventosProximidade.length) * index, 1.0, curve: Curves.decelerate),
+                ),
+              );
+              return AnimatedBuilder(
+                animation: animation,
+                builder: (context, child) => Transform.translate(
+                  offset: Offset(animation.value, 0.0),
+                  child: EventosProximidade(
+                    event: event,
+                    onTap: () => viewEventDetail(event),
+                  ),
+                ),
+              );
+            },
           ),
         ],
       ),

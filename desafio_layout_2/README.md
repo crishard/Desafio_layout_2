@@ -5,4 +5,4 @@
 
     this project was created in order to clone an example of driblle layout.
 
-    used model: https://dribbble.com/shots/10796226-Event-App?ref=morioh.com&utm_source=morioh.com
+    used model: https://dribbble.com/shots/10796226/attachments/2457093?mode=media
