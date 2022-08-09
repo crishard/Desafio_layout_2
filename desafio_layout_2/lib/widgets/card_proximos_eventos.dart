@@ -8,7 +8,9 @@ import 'package:flutter/material.dart';
 class CardPRoximosEventos extends StatelessWidget {
   final Evento event;
   final VoidCallback onTap;
-  const CardPRoximosEventos({Key? key, required this.event, required this.onTap}) : super(key: key);
+  const CardPRoximosEventos(
+      {Key? key, required this.event, required this.onTap})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width * 0.8;
@@ -58,7 +60,8 @@ class CardPRoximosEventos extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Text(DateTimeUtils.getMonth(event.eventDate), style: monthStyle),
-              Text(DateTimeUtils.getDayOfMonth(event.eventDate), style: titleStyle),
+              Text(DateTimeUtils.getDayOfMonth(event.eventDate),
+                  style: titleStyle),
             ],
           ),
         ),
@@ -71,7 +74,8 @@ class CardPRoximosEventos extends StatelessWidget {
             SizeHelper.verticalSpace(4),
             Row(
               children: <Widget>[
-                Icon(Icons.location_on, size: 16, color: Theme.of(context).primaryColor),
+                Icon(Icons.location_on,
+                    size: 16, color: Theme.of(context).primaryColor),
                 SizeHelper.horizontalSpace(4),
                 Text(event.location.toUpperCase(), style: subtitleStyle),
               ],

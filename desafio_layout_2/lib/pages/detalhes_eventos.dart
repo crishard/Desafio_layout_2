@@ -90,7 +90,7 @@ class _EventDetailPageState extends State<PaginaDetalhesEventos> with TickerProv
                           SizeHelper.verticalSpace(16),
                           DataEvento(diaDaSemana: DateTimeUtils.getDayOfWeek(event.eventDate),
                            diaDoMes: DateTimeUtils.getDayOfMonth(event.eventDate), 
-                           mes: DateTimeUtils.getDayOfWeek(event.eventDate)),
+                           mes: DateTimeUtils.getMonth(event.eventDate)),
                           SizeHelper.verticalSpace(24),
                           SobreEventos(text: event.description),
                           SizeHelper.verticalSpace(24),

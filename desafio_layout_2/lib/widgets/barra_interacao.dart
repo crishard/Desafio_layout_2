@@ -4,7 +4,14 @@ import 'package:desafio_layout_2/widgets/botao_voltar.dart';
 import 'package:flutter/material.dart';
 
 class BarraInteracao extends StatelessWidget {
-  BarraInteracao({Key? key, required this.nome, required this.hasTitle, required this.funcao, required this.controller, required this.favorito}) : super(key: key);
+  BarraInteracao(
+      {Key? key,
+      required this.nome,
+      required this.hasTitle,
+      required this.funcao,
+      required this.controller,
+      required this.favorito})
+      : super(key: key);
   final AnimationController controller;
   final dynamic nome;
   final Function()? funcao;
@@ -19,7 +26,8 @@ class BarraInteracao extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             BoTaoVoltar(controller: controller, hasTitle: hasTitle),
-            if (hasTitle) Text(nome, style: titleStyle.copyWith(color: Colors.white)),
+            if (hasTitle)
+              Text(nome, style: titleStyle.copyWith(color: Colors.white)),
             BotaoFavorito(favorito: favorito, funcao: funcao)
           ],
         ),

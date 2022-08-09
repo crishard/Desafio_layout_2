@@ -22,7 +22,7 @@ class DataEvento extends StatelessWidget {
             color: primaryLight,
             borderRadius: BorderRadius.circular(8),
           ),
-          padding: const EdgeInsets.all(6),
+          padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 4),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
@@ -31,7 +31,7 @@ class DataEvento extends StatelessWidget {
             ],
           ),
         ),
-        SizeHelper.horizontalSpace(12),
+        // SizeHelper.horizontalSpace(12),
         HorarioEvento(diaDaSemana:diaDaSemana ),
         const AdicionarAoCalendario(),
             ],

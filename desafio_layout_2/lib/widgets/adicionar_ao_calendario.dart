@@ -12,12 +12,12 @@ class AdicionarAoCalendario extends StatelessWidget {
           decoration: const ShapeDecoration(shape: StadiumBorder(), color: primaryLight),
           child: Row(
             children:[
-              SizeHelper.horizontalSpace(12),
-              Text("Add to", style: subtitleStyle.copyWith(color: Theme.of(context).primaryColor)),
+              // SizeHelper.horizontalSpace(12),
+              Text("Add to calendar", style: subtitleStyle.copyWith(color: Theme.of(context).primaryColor)),
               FloatingActionButton(
                 mini: true,
                 onPressed: () {},
-                child: const Icon(Icons.calendar_month_outlined),
+                child: const Icon(Icons.add),
               ),
             ]
           )
