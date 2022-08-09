@@ -22,7 +22,7 @@ class HomePageButtonNavigationBar extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           label: "Map",
-          icon: Icon(Icons.location_on),
+          icon: Icon(Icons.location_on_rounded),
         ),
         BottomNavigationBarItem(
           label: "Ticket",

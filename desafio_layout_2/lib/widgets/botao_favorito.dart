@@ -19,7 +19,7 @@ class BotaoFavorito extends StatelessWidget {
               color: Colors.white),
         ),
       ),
-      color: Color.fromARGB(252, 114, 20, 131), /*  */
+      color: Color.fromARGB(108, 114, 20, 131), /*  */
     );
   }
 }

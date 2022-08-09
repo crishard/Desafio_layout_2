@@ -14,7 +14,7 @@ class BoTaoVoltar extends StatelessWidget {
       margin: const EdgeInsets.all(0),
       color: hasTitle
           ? Theme.of(context).primaryColor
-          : Color.fromARGB(199, 255, 255, 255),
+          : Color.fromARGB(166, 255, 255, 255),
       child: InkWell(
         onTap: () {
           if (controller.isCompleted) controller.reverse();

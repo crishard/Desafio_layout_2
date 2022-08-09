@@ -8,7 +8,7 @@ class AdicionarAoCalendario extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 6),
+      padding: const EdgeInsets.symmetric(horizontal: 4),
           decoration: const ShapeDecoration(shape: StadiumBorder(), color: primaryLight),
           child: Row(
             children:[

@@ -99,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        child: const Icon(FontAwesomeIcons.qrcode),
+        child: const Icon(Icons.qr_code_scanner_sharp),
       ),
     );
   }

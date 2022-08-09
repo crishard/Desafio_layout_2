@@ -21,9 +21,7 @@ class HomeBackgroundColor extends AnimatedWidget {
                   (MediaQuery.of(context).size.height / 2.5) * progress.value,
               width: double.infinity,
               decoration: BoxDecoration(
-                color: Theme.of(context)
-                    .primaryColor
-                    .withOpacity(lerpDouble(0.5, 1.0, progress.value) ?? 1.0),
+                color: Color.fromARGB(255, 164, 17, 190),
                 borderRadius:
                     const BorderRadius.vertical(bottom: Radius.circular(32)),
               ),
