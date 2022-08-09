@@ -20,8 +20,8 @@ class PaginaDetalhesEventos extends StatefulWidget {
   _EventDetailPageState createState() => _EventDetailPageState();
 }
 
-class _EventDetailPageState extends State<PaginaDetalhesEventos> with TickerProviderStateMixin {
-  
+class _EventDetailPageState extends State<PaginaDetalhesEventos>
+    with TickerProviderStateMixin {
   late Evento event;
   late AnimationController controller;
   late AnimationController bodyScrollAnimationController;
@@ -32,7 +32,7 @@ class _EventDetailPageState extends State<PaginaDetalhesEventos> with TickerProv
   double headerImageSize = 0;
   bool isFavorite = false;
 
-   @override
+  @override
   void dispose() {
     controller.dispose();
     bodyScrollAnimationController.dispose();
@@ -42,14 +42,18 @@ class _EventDetailPageState extends State<PaginaDetalhesEventos> with TickerProv
   @override
   void initState() {
     event = widget.event;
-    controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 300));
-    bodyScrollAnimationController = AnimationController(vsync: this, duration: const Duration(milliseconds: 300));
+    controller = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 300));
+    bodyScrollAnimationController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 300));
     scrollController = ScrollController()
       ..addListener(() {
         if (scrollController.offset >= headerImageSize / 2) {
-          if (!bodyScrollAnimationController.isCompleted) bodyScrollAnimationController.forward();
+          if (!bodyScrollAnimationController.isCompleted)
+            bodyScrollAnimationController.forward();
         } else {
-          if (bodyScrollAnimationController.isCompleted) bodyScrollAnimationController.reverse();
+          if (bodyScrollAnimationController.isCompleted)
+            bodyScrollAnimationController.reverse();
         }
       });
 
@@ -80,7 +84,15 @@ class _EventDetailPageState extends State<PaginaDetalhesEventos> with TickerProv
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    ImagemHeader(imageSize: headerImageSize, image: event.image, controller: controller, scale: scale, favorito: isFavorite, nome: event.name, funcao: () => setState(() => isFavorite = !isFavorite),),
+                    ImagemHeader(
+                      imageSize: headerImageSize,
+                      image: event.image,
+                      controller: controller,
+                      scale: scale,
+                      favorito: isFavorite,
+                      nome: event.name,
+                      funcao: () => setState(() => isFavorite = !isFavorite),
+                    ),
                     Container(
                       padding: const EdgeInsets.all(16),
                       child: Column(
@@ -88,13 +100,18 @@ class _EventDetailPageState extends State<PaginaDetalhesEventos> with TickerProv
                         children: [
                           NomeEvento(nome: event.name),
                           SizeHelper.verticalSpace(16),
-                          DataEvento(diaDaSemana: DateTimeUtils.getDayOfWeek(event.eventDate),
-                           diaDoMes: DateTimeUtils.getDayOfMonth(event.eventDate), 
-                           mes: DateTimeUtils.getMonth(event.eventDate)),
+                          DataEvento(
+                              diaDaSemana:
+                                  DateTimeUtils.getDayOfWeek(event.eventDate),
+                              diaDoMes:
+                                  DateTimeUtils.getDayOfMonth(event.eventDate),
+                              mes: DateTimeUtils.getMonth(event.eventDate)),
                           SizeHelper.verticalSpace(24),
                           SobreEventos(text: event.description),
                           SizeHelper.verticalSpace(24),
-                          InformacoesOrganizacao(organizacao1: event.organizer[0], organizadorEvento: event.organizer),
+                          InformacoesOrganizacao(
+                              organizacao1: event.organizer[0],
+                              organizadorEvento: event.organizer),
                           SizeHelper.verticalSpace(24),
                           const LocalEvento(),
                           SizeHelper.verticalSpace(124),
@@ -116,7 +133,13 @@ class _EventDetailPageState extends State<PaginaDetalhesEventos> with TickerProv
                     child: Material(
                       elevation: 2,
                       color: Theme.of(context).primaryColor,
-                      child: BarraInteracao(hasTitle: has, nome: event.name, funcao: () => setState(() => isFavorite = !isFavorite), controller: controller, favorito: isFavorite,),
+                      child: BarraInteracao(
+                        hasTitle: has,
+                        nome: event.name,
+                        funcao: () => setState(() => isFavorite = !isFavorite),
+                        controller: controller,
+                        favorito: isFavorite,
+                      ),
                     ),
                   );
                 },

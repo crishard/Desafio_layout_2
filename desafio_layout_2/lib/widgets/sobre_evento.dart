@@ -3,7 +3,6 @@ import 'package:desafio_layout_2/widgets/sizebox_help.dart';
 import 'package:flutter/material.dart';
 
 class SobreEventos extends StatelessWidget {
-
   const SobreEventos({Key? key, required this.text}) : super(key: key);
   final dynamic text;
   @override
@@ -19,7 +18,9 @@ class SobreEventos extends StatelessWidget {
         InkWell(
           child: Text(
             "Read more...",
-            style: TextStyle(color: Theme.of(context).primaryColor, decoration: TextDecoration.underline),
+            style: TextStyle(
+                color: Theme.of(context).primaryColor,
+                decoration: TextDecoration.underline),
           ),
           onTap: () {},
         ),

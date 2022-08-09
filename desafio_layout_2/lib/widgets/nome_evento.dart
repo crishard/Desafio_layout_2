@@ -12,13 +12,3 @@ class NomeEvento extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-

@@ -15,8 +15,3 @@ class LocalEvento extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

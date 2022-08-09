@@ -8,14 +8,19 @@ import 'package:desafio_layout_2/widgets/sizebox_help.dart';
 import 'package:flutter/material.dart';
 
 class DataEvento extends StatelessWidget {
-  const DataEvento({Key? key, required this.diaDaSemana, required this.diaDoMes, required this.mes}) : super(key: key);
+  const DataEvento(
+      {Key? key,
+      required this.diaDaSemana,
+      required this.diaDoMes,
+      required this.mes})
+      : super(key: key);
   final dynamic mes;
   final dynamic diaDoMes;
   final dynamic diaDaSemana;
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment:  MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Container(
           decoration: BoxDecoration(
@@ -32,9 +37,9 @@ class DataEvento extends StatelessWidget {
           ),
         ),
         // SizeHelper.horizontalSpace(12),
-        HorarioEvento(diaDaSemana:diaDaSemana ),
+        HorarioEvento(diaDaSemana: diaDaSemana),
         const AdicionarAoCalendario(),
-            ],
+      ],
     );
   }
 }

@@ -4,7 +4,6 @@ import 'package:desafio_layout_2/widgets/sizebox_help.dart';
 import 'package:flutter/material.dart';
 
 class InformacoesPreco extends StatelessWidget {
-
   const InformacoesPreco({Key? key, required this.preco}) : super(key: key);
   final dynamic preco;
   @override
@@ -26,8 +25,12 @@ class InformacoesPreco extends StatelessWidget {
                 text: TextSpan(
                   children: [
                     TextSpan(
-                        text: "\$${preco}", style: titleStyle.copyWith(color: Theme.of(context).primaryColor)),
-                    const TextSpan(text: "/per person", style: TextStyle(color: Colors.black)),
+                        text: "\$${preco}",
+                        style: titleStyle.copyWith(
+                            color: Theme.of(context).primaryColor)),
+                    const TextSpan(
+                        text: "/per person",
+                        style: TextStyle(color: Colors.black)),
                   ],
                 ),
               ),

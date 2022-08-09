@@ -8,7 +8,8 @@ import 'package:flutter/material.dart';
 class EventosProximidade extends StatelessWidget {
   final Evento event;
   final VoidCallback onTap;
-  const EventosProximidade({Key? key, required this.event, required this.onTap}) : super(key: key);
+  const EventosProximidade({Key? key, required this.event, required this.onTap})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -56,7 +57,8 @@ class EventosProximidade extends StatelessWidget {
           SizeHelper.verticalSpace(8),
           Row(
             children: <Widget>[
-              Icon(Icons.location_on, size: 16, color: Theme.of(context).primaryColor),
+              Icon(Icons.location_on,
+                  size: 16, color: Theme.of(context).primaryColor),
               SizeHelper.horizontalSpace(4),
               Text(event.location.toUpperCase(), style: subtitleStyle),
             ],

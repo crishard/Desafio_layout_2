@@ -10,13 +10,13 @@ class HorarioEvento extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(diaDaSemana, style: titleStyle),
-            SizeHelper.verticalSpace(4),
-            const Text("10:00 - 12:00 PM", style: subtitleStyle),
-          ],
-        );
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(diaDaSemana, style: titleStyle),
+        SizeHelper.verticalSpace(4),
+        const Text("10:00 - 12:00 PM", style: subtitleStyle),
+      ],
+    );
   }
 }

@@ -17,15 +17,16 @@ class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
+
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
-   int _currentIndex = 0;
+  int _currentIndex = 0;
 
-   late ScrollController scrollController;
-   late Animation<double> opacity;
-   late AnimationController controller;
-   late AnimationController opacityController;
+  late ScrollController scrollController;
+  late Animation<double> opacity;
+  late AnimationController controller;
+  late AnimationController opacityController;
 
-   void viewEventDetail(Evento event) {
+  void viewEventDetail(Evento event) {
     Navigator.of(context).push(
       PageRouteBuilder(
         opaque: false,
@@ -41,21 +42,26 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
     );
   }
 
-   void initState() {
+  void initState() {
     scrollController = ScrollController();
-    controller = AnimationController(vsync: this, duration: const Duration(seconds: 1))..forward();
-    opacityController = AnimationController(vsync: this, duration: const Duration(microseconds: 1));
+    controller =
+        AnimationController(vsync: this, duration: const Duration(seconds: 1))
+          ..forward();
+    opacityController = AnimationController(
+        vsync: this, duration: const Duration(microseconds: 1));
     opacity = Tween(begin: 1.0, end: 0.0).animate(CurvedAnimation(
       curve: Curves.linear,
       parent: opacityController,
     ));
     scrollController.addListener(() {
       opacityController.value = offsetToOpacity(
-          currentOffset: scrollController.offset, maxOffset: scrollController.position.maxScrollExtent / 2);
+          currentOffset: scrollController.offset,
+          maxOffset: scrollController.position.maxScrollExtent / 2);
     });
     super.initState();
   }
-   @override
+
+  @override
   void dispose() {
     controller.dispose();
     scrollController.dispose();
@@ -69,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       body: Stack(
         children: [
           HomeBackgroundColor(opacity),
-           SingleChildScrollView(
+          SingleChildScrollView(
             controller: scrollController,
             padding: const EdgeInsets.only(top: 100),
             child: Column(
@@ -96,16 +102,16 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         child: const Icon(FontAwesomeIcons.qrcode),
       ),
     );
-    
   }
 
-  Widget proximosEvents (){
+  Widget proximosEvents() {
     return Container(
       padding: const EdgeInsets.only(left: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text("Upcoming Events", style: headerStyle.copyWith(color: Colors.white)),
+          Text("Upcoming Events",
+              style: headerStyle.copyWith(color: Colors.white)),
           SizeHelper.verticalSpace(16),
           SizedBox(
             height: 250,
@@ -115,7 +121,8 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 final event = proximosEventos[index];
-                return CardPRoximosEventos(event: event, onTap: () => viewEventDetail(event));
+                return CardPRoximosEventos(
+                    event: event, onTap: () => viewEventDetail(event));
               },
             ),
           ),
@@ -152,7 +159,8 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
               var animation = Tween<double>(begin: 800.0, end: 0.0).animate(
                 CurvedAnimation(
                   parent: controller,
-                  curve: Interval((1 / eventosProximidade.length) * index, 1.0, curve: Curves.decelerate),
+                  curve: Interval((1 / eventosProximidade.length) * index, 1.0,
+                      curve: Curves.decelerate),
                 ),
               );
               return AnimatedBuilder(

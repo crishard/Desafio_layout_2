@@ -4,7 +4,9 @@ import 'package:desafio_layout_2/widgets/sizebox_help.dart';
 import 'package:flutter/material.dart';
 
 class InformacoesOrganizacao extends StatelessWidget {
-  const InformacoesOrganizacao({Key? key, required this.organizacao1, required this.organizadorEvento}) : super(key: key);
+  const InformacoesOrganizacao(
+      {Key? key, required this.organizacao1, required this.organizadorEvento})
+      : super(key: key);
   final dynamic organizacao1;
   final dynamic organizadorEvento;
   @override
@@ -25,7 +27,8 @@ class InformacoesOrganizacao extends StatelessWidget {
         ),
         const Spacer(),
         TextButton(
-          child: Text("Follow", style: TextStyle(color: Theme.of(context).primaryColor)),
+          child: Text("Follow",
+              style: TextStyle(color: Theme.of(context).primaryColor)),
           onPressed: () {},
           style: TextButton.styleFrom(
             shape: const StadiumBorder(),
@@ -36,8 +39,3 @@ class InformacoesOrganizacao extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
